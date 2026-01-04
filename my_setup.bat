@@ -12,6 +12,7 @@ winget install --id Google.Chrome.EXE -e %OPT%
 winget install --id Google.GoogleDrive -e %OPT%
 winget install --id 7zip.7zip -e %OPT%
 winget install --id WinMerge.WinMerge -e %OPT%
+winget install --id Anthropic.Claude -e %OPT%
 
 :: 2. Editors
 echo [2/5] Installing Editors...
