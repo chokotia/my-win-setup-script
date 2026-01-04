@@ -3,46 +3,46 @@ echo ===================================================
 echo    Windows Personal Environment Setup
 echo ===================================================
 
-:: サイレントインストール用オプション
+:: Silent installation options
 set OPT=--accept-package-agreements --accept-source-agreements --silent
 
-:: 1. ブラウザ・基本ツール・クラウド
+:: 1. Browser, Basic Tools, and Cloud
 echo [1/5] Installing Basic Tools and Cloud...
 winget install --id Google.Chrome.EXE -e %OPT%
 winget install --id Google.GoogleDrive -e %OPT%
 winget install --id 7zip.7zip -e %OPT%
 winget install --id WinMerge.WinMerge -e %OPT%
 
-:: 2. エディタ
+:: 2. Editors
 echo [2/5] Installing Editors...
 winget install --id sakura-editor.sakura -e %OPT%
 winget install --id Microsoft.VisualStudioCode -e %OPT%
 winget install --id Anysphere.Cursor -e %OPT%
 
-:: 3. 開発基盤
+:: 3. Development Runtimes
 echo [3/5] Installing Dev Runtimes...
 winget install --id Docker.DockerDesktop -e %OPT%
 winget install --id OpenJS.NodeJS.22 -e %OPT%
 winget install --id Python.Python.3.11 -e %OPT%
 
-:: 4. AI CLIツール
+:: 4. AI CLI Tools
 echo [4/5] Installing AI CLI Tools...
 call npm install -g @anthropic-ai/claude-code @google/generative-ai
 
-:: 5. Git・ネットワーク
+:: 5. Git and Network Tools
 echo [5/5] Installing Git and Tools...
 winget install --id Atlassian.Sourcetree -e %OPT%
 winget install --id TortoiseGit.TortoiseGit -e %OPT%
 winget install --id TeraTermProject.teraterm -e %OPT%
 winget install --id GitHub.cli -e %OPT%
 
-:: --- [Git 基本設定の自動復元] ---
+:: --- [Git Basic Configuration Auto-Restore] ---
 echo [Extra] Configuring Git...
 git config --global user.name "hoge"
 git config --global user.email "hoge@hoge"
 git config --global core.autocrlf true
 
-:: --- [WinMerge / Sourcetree 連携設定] ---
+:: --- [WinMerge / Sourcetree Integration Setup] ---
 echo Setting up WinMerge as Diff Tool...
 git config --global diff.tool winmerge
 git config --global difftool.winmerge.path "C:/Program Files/WinMerge/WinMergeU.exe"
