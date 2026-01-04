@@ -28,3 +28,13 @@ AntivirusEnabled RealTimeProtectionEnabled AMRunningMode
 ---------------- ------------------------- -------------
             True                      True Normal
 ```
+
+### PowerShell実行ポリシーの設定
+
+npmでインストールしたCLIツール（claude等）を使用するには、PowerShellの実行ポリシーを変更する必要があります:
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+確認を求められたら `Y` を入力してください。
