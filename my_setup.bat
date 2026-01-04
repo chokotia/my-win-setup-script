@@ -42,16 +42,6 @@ git config --global user.name "hoge"
 git config --global user.email "hoge@hoge"
 git config --global core.autocrlf true
 
-:: --- [WinMerge / Sourcetree Integration Setup] ---
-echo Setting up WinMerge as Diff Tool...
-git config --global diff.tool winmerge
-git config --global difftool.winmerge.path "C:/Program Files/WinMerge/WinMergeU.exe"
-git config --global difftool.winmerge.cmd "\"C:/Program Files/WinMerge/WinMergeU.exe\" -e -u -dl \"Local\" -dr \"Remote\" \"$LOCAL\" \"$REMOTE\""
-git config --global merge.tool winmerge
-git config --global mergetool.winmerge.path "C:/Program Files/WinMerge/WinMergeU.exe"
-git config --global mergetool.winmerge.cmd "\"C:/Program Files/WinMerge/WinMergeU.exe\" -e -u -dl \"Local\" -dr \"Remote\" \"$LOCAL\" \"$REMOTE\""
-git config --global mergetool.winmerge.trustExitCode true
-
 echo ===================================================
 echo    Setup Complete! Please restart your PC.
 echo ===================================================
