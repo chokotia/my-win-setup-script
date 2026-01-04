@@ -6,6 +6,10 @@ echo ===================================================
 :: Silent installation options
 set OPT=--accept-package-agreements --accept-source-agreements --silent
 
+:: 0. Cleanup: Remove pre-installed bloatware
+echo [0/5] Uninstalling Pre-installed Software...
+winget uninstall --name "McAfee® Personal Security" --silent
+
 :: 1. Browser, Basic Tools, and Cloud
 echo [1/5] Installing Basic Tools and Cloud...
 winget install --id Google.Chrome.EXE -e %OPT%
