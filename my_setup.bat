@@ -43,7 +43,7 @@ powershell -Command "[Environment]::SetEnvironmentVariable('PATH', $env:APPDATA 
 
 :: 4. AI CLI Tools
 echo [4/5] Installing AI CLI Tools...
-call npm install -g @anthropic-ai/claude-code @google/generative-ai
+call npm install -g @anthropic-ai/claude-code @google/gemini-cli
 
 :: 5. Git and Network Tools
 echo [5/5] Installing Git and Tools...
