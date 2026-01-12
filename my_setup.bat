@@ -29,7 +29,17 @@ winget install --id Anysphere.Cursor -e %OPT%
 echo [3/5] Installing Dev Runtimes...
 winget install --id Docker.DockerDesktop -e %OPT%
 winget install --id OpenJS.NodeJS.22 -e %OPT%
-winget install --id Python.Python.3.11 -e %OPT%
+:: pyenv-win (PowerShell installer)
+powershell -Command "Invoke-WebRequest -UseBasicParsing -Uri 'https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1' -OutFile './install-pyenv-win.ps1'; &'./install-pyenv-win.ps1'"
+del install-pyenv-win.ps1
+:: Install Python via pyenv and set as global
+set "PATH=%USERPROFILE%\.pyenv\pyenv-win\bin;%USERPROFILE%\.pyenv\pyenv-win\shims;%PATH%"
+call pyenv install 3.11.9
+call pyenv global 3.11.9
+:: Poetry (official installer)
+powershell -Command "(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -"
+:: Add Poetry to user PATH permanently
+powershell -Command "[Environment]::SetEnvironmentVariable('PATH', $env:APPDATA + '\Python\Scripts;' + [Environment]::GetEnvironmentVariable('PATH', 'User'), 'User')"
 
 :: 4. AI CLI Tools
 echo [4/5] Installing AI CLI Tools...
