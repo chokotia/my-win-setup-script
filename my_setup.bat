@@ -36,6 +36,8 @@ call pyenv global 3.11.9
 powershell -Command "(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -"
 :: Add Poetry to user PATH permanently
 powershell -Command "[Environment]::SetEnvironmentVariable('PATH', $env:APPDATA + '\Python\Scripts;' + [Environment]::GetEnvironmentVariable('PATH', 'User'), 'User')"
+:: uv (Fast Python package manager)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 :: 4. AI CLI Tools
 echo [4/5] Installing AI CLI Tools...
